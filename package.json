@@ -1,0 +1,19 @@
+{
+  "name": "myob-challenge",
+  "main": "backend/server.js",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "~1.16.1",
+    "cors": "^2.8.1",
+    "express": "~4.14.1",
+    "morgan": "^1.8.1",
+    "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node backend/server.js",
+    "postinstall": "cd public && npm install"
+  },
+  "repository": "",
+  "license": "ISC"
+}

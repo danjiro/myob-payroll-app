@@ -1,0 +1,39 @@
+<md-content class="md-padding" layout="row" layout-align="center center">
+	<div flex flex-gt-sm="35" layout="column">
+		<md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Login</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content layout="column" layout-align="space-between">
+      	<form name="loginForm" ng-submit="vm.login()">
+        	<md-input-container class="md-block">
+    	      <!-- Use floating placeholder instead of label -->
+    	      <md-icon>email</md-icon>
+    	      <label>Email</label>
+    	      <input required type="email" name="user" 
+    	        ng-model="vm.loginDetails.user" ng-pattern="/^.+@.+\..+$/" />
+    	      <div ng-messages="loginForm.user.$error" ng-if="loginForm.user.$touched">
+    	        <div ng-message-exp="['required', 'pattern']">A valid email is required to login.</div>
+    	      </div>
+    	    </md-input-container>
+    	    <md-input-container class="md-block">
+    	    	<md-icon>lock</md-icon>
+    	      <label>Password</label>
+    	      <input required type="password" name="password" ng-model="vm.loginDetails.password" />    
+    	      <div ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
+    	        <div ng-message="required">Password is required to login.</div>
+    	      </div>
+    	    </md-input-container>
+    	    <div layout="column">
+            <md-button class="md-raised md-primary" 
+            	ng-disabled="loginForm.$invalid || loggingIn" type="submit">
+                {{loggingIn ? "Logging in" : "Login"}}
+            </md-button>
+          </div>
+  	    </form>
+      </md-card-content>
+  	</md-card>
+	</div>
+</md-content>

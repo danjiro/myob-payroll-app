@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="payrollApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MYOB Payroll App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,700'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body ng-cloak layout="column" ng-controller="payrollAppController as payrollApp">
+  <md-toolbar layout="row" class="md-toolbar-tools">
+    <h1>MYOB Payroll App</h1>
+    <span flex></span>
+    <p ng-if="userDetails.user" class="md-subhead">User: {{userDetails.user}}</p>
+    <md-button ng-if="userDetails.user" 
+      class="md-raised" aria-label="logout" ng-click="payrollApp.logout()">Logout</md-button>
+  </md-toolbar>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <ui-view></ui-view>
+
+  <!-- <div>Angular seed app: v<span app-version></span></div> -->
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="app.js"></script>
+  <script src="views/login/login.js"></script>
+  <script src="views/payslip/payslip.js"></script>
+  <script src="views/payslip/payslipView/payslipView.js"></script>
+  <script src="services/authServices.js"></script>
+  <script src="services/payslipServices.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

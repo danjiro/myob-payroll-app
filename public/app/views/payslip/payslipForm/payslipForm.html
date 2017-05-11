@@ -1,0 +1,62 @@
+<div flex flex-gt-sm="50" layout="column">
+	<md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">Employee Info</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+    	<form name="payslipForm" ng-submit="vm.generatePayslip()">
+        <div layout="row" layout-align="space-between start">
+          <md-input-container class="md-block" flex="45">
+            <label>First name</label>
+            <input required ng-model="vm.employee.firstName" name="firstName"
+              ng-pattern="/^[a-zA-Z- ]*$/">
+            <div ng-messages="payslipForm.firstName.$error" ng-if="payslipForm.firstName.$touched">
+              <div ng-message="required">First name is required.</div>
+              <div ng-message="pattern">First name contains illegal characters.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex="45">
+            <label>Last name</label>
+            <input required ng-model="vm.employee.lastName" name="lastName"
+              ng-pattern="/^[a-zA-Z- ]*$/">
+            <div ng-messages="payslipForm.lastName.$error" ng-if="payslipForm.lastName.$touched">
+              <div ng-message="required">Last name is required.</div>
+              <div ng-message="pattern">Last name contains illegal characters.</div>
+            </div>
+          </md-input-container>            
+        </div>
+        <div layout="row" layout-align="space-between start">
+          <md-input-container class="md-block" flex="45">
+            <md-icon md-svg-icon="dollar-sign"></md-icon>
+            <label>Annual Salary</label>
+            <input required type="number" step="1" name="salary" 
+              ng-model="vm.employee.annualSalary" ng-pattern="/^[0-9]{1,9}$/" />
+            <div ng-messages="payslipForm.salary.$error" ng-if="payslipForm.salary.$touched">
+              <div ng-message="required">Salary is required.</div>
+              <div ng-message="pattern">Salary must be between 0 - 99,999,999.</div>
+            </div>
+          </md-input-container>
+          <md-input-container class="md-block" flex="45">
+            <md-icon md-svg-icon="percentage"></md-icon>
+            <label>Super Rate</label>
+            <input required type="number" step="0.01" name="super" 
+              ng-model="vm.employee.superRate" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" />
+            <div ng-messages="payslipForm.super.$error" ng-if="payslipForm.super.$touched">
+              <div ng-message="required">Super is required.</div>
+              <div ng-message="pattern">Super cannot exceed 2 decimal points.</div>
+            </div>
+          </md-input-container>           
+        </div>
+        <div layout="column">
+          <md-button class="md-raised md-primary" 
+            ng-disabled="payslipForm.$invalid" type="submit">
+              Generate Payslip
+          </md-button>
+        </div>
+	    </form>
+    </md-card-content>
+	</md-card>
+</div>
