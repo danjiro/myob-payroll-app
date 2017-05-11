@@ -11,8 +11,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node backend/server.js",
-    "postinstall": "cd public && npm install"
+    "postinstall": "cd public && npm install",
+    "start": "node backend/server.js"
   },
   "repository": "",
   "license": "ISC"
