@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "postinstall": "cd public && npm install",
     "start": "node backend/server.js"
   },
   "repository": "",
